@@ -1,4 +1,4 @@
- == Personal-Health-Record-System
+#Personal-Health-Record-System
 
 This System helps us to lead a better life & to make better choices in life.
 By simlply reviewing our Medical History of each part of the body & can compare results of each year. We can understand it better when we know where it is heading to! 
@@ -21,4 +21,4 @@ This application uses:
 * Sql & MySql to access and Manage database
 * Database Normalization & Indexing
 
-/*Yet to Finish the whole work*/
+<tt>Yet to Finish the whole work</tt>
