@@ -21,4 +21,4 @@ This application uses:
 * Sql & MySql to access and Manage database
 * Database Normalization & Indexing
 
-<tt>Yet to be Finished the whole work</tt>
+<tt>Yet to be Finished!</tt>
