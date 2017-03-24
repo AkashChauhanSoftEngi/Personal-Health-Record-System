@@ -13,12 +13,13 @@ This application uses:
 * MVC Structure
 * Strust2 2.3.20
 * Hibernate 5.2.2 [ORM]
+* log4j-1.2.17
 * Apache Tomcat v8.0
 * Eclipse [IDE]
-* Pencil Project & Freamebox to design WifeFrames of web pages
-* HTML5, CSS3 & BootStrap for Frontend design
+* Pencil Project & Framebox to design WifeFrames of web pages
+* HTML5, CSS3 & BootStrap for frontend design
 * MySql Server (WampServer 3.0.4)
-* Sql & MySql to access and Manage database
+* Sql & MySql to access and Manage Database
 * Database Normalization & Indexing
 
 <tt>Yet to be Finished!</tt>
