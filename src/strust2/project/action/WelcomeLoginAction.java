@@ -17,13 +17,13 @@ public class WelcomeLoginAction extends ActionSupport {
 	WelcomeLoginDao dao = new WelcomeLoginDao();
 	WelcomeLogin luser;
 	
-	final Logger log = Logger.getLogger(WelcomeLoginAction.class);
+	private static final Logger log = Logger.getLogger(WelcomeLoginAction.class);
 	
 	@Override
 	public String execute(){
-		
+		log.info("UserId and Password going to check in DB!");
 		if (dao.find(luser.getEmail(), luser.getPass())) {
-			log.debug("UserId and Password do exist in DB!");
+			log.info("UserId and Password do exist in DB!");
 			return MyAction.GOOD;
 			} 
 		else {

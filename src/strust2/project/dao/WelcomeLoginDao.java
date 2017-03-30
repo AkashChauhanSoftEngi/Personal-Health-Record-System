@@ -15,30 +15,32 @@ public class WelcomeLoginDao {
     	
         Session session = HibernateUtil.getSessionFactory().openSession();
         //session.beginTransaction();
-        String sql = "from strust2.project.model.WelcomeLogin wl where wl.email=:name and wl.pass=:pass";
+        String sql = "from strust2.project.model.WelcomeLogin wl where wl.email=" + email + " and wl.pass=" + password;
         
         @SuppressWarnings("rawtypes")
 		Query query = session.createQuery(sql);
         
-        log.debug("Creating Query:" + query);
+        log.info("Creating Query:" + query);
         
+        /*
         query.setParameter("name", email);
         query.setParameter("pass", password);
+        */
         
-        log.debug("Setting Query Parameter:" + "Email:" + email + ',' + "Password:" + password);
+        log.info("Setting Query Parameter:" + "Email:" + email + ',' + "Password:" + password);
         
         @SuppressWarnings({ "unchecked", "deprecation" })
 		List<WelcomeLogin> list = query.list();
         
-        log.debug("Query Result:"+ list);
+        log.info("Query Result:"+ list);
         
         if (list.size() > 0) {
             session.close();
-            log.debug("UserId & Paasword do exit in DB!");
+            log.info("UserId & Paasword do exit in DB!");
             return true;
         }
         session.close();
-        log.debug("UserId & Paasword do not exit in DB!");
+        log.error("UserId & Paasword do not exit in DB!");
         return false;
     }
 }
