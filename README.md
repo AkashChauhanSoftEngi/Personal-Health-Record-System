@@ -14,7 +14,7 @@ This application uses:
 * Java EE 7
 * MVC Structure
 * Strust2 2.3.20
-* Hibernate 5.2.2 [ORM]
+* Hibernate-Annotations-3.4.0.GA [ORM]
 * log4j-1.2.17
 * Apache Tomcat v8.0
 * Eclipse Mars.2 4.5.2 [IDE]
