@@ -1,26 +1,27 @@
 package strust2.project.util;
 
+
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
- 
+import strust2.project.model.WelcomeLogin;
+import strust2.project.model.WelcomeRegister;
+
 public class HibernateUtil {
 	 
-    private static SessionFactory sessionFactory;
- 
-    public static SessionFactory getSessionFactory() {
-        if (sessionFactory == null) {
-            // loads configuration and mappings
-            Configuration configuration = new Configuration().configure();
-            ServiceRegistry serviceRegistry
-                    = new StandardServiceRegistryBuilder()
-                    .applySettings(configuration.getProperties()).build();
- 
-            // builds a session factory from the service registry
-            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-        }
- 
-        return sessionFactory;
-    }
+	private static SessionFactory factory;
+	public static SessionFactory getSessionFactory()
+	{
+	      try{
+	          factory = new Configuration().
+	                    configure().
+	                    //addPackage("strust2.project.model"). //add package if used.
+	                    addAnnotatedClass(WelcomeLogin.class).
+	                    addAnnotatedClass(WelcomeRegister.class).
+	                    buildSessionFactory();
+	       }catch (Throwable ex) { 
+	          System.err.println("Failed to create sessionFactory object." + ex);
+	          throw new ExceptionInInitializerError(ex); 
+	       }
+	      return factory;
+	}
 }

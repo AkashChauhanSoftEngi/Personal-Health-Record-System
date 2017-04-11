@@ -1,6 +1,10 @@
 package strust2.project.action;
 
+import org.apache.log4j.Logger;
+
 import com.opensymphony.xwork2.ActionSupport;
+
+import strust2.project.dao.WelcomeRegisterDao;
 
 public class WelcomeRegisterAction extends ActionSupport {
 	private String f_name;
@@ -10,9 +14,20 @@ public class WelcomeRegisterAction extends ActionSupport {
 	private String gender;
 	
 	private static final long serialVersionUID = 1L;
-
+	final Logger log = Logger.getLogger(WelcomeRegisterDao.class);
+	WelcomeRegisterDao dao = new WelcomeRegisterDao();
+	
 	public String execute() throws Exception {
-		return MyAction.GOOD;
+		//add user here, call method in DAO file
+		if(dao.addUser(f_name,l_name,email,pass,gender))
+		{
+			log.info("User Added!");
+			return MyAction.GOOD;
+		}
+		else
+		{
+			return MyAction.BAD;
+		}
 	}
 
 	public String getEmail() {
@@ -54,7 +69,7 @@ public class WelcomeRegisterAction extends ActionSupport {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
+	
 	public void validate() {
 		if (f_name == null || f_name.trim().equals("")) {
 			addFieldError("f_name", "First Name is required");

@@ -66,7 +66,7 @@
           <li><a href="#">Help</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>User-Name</a>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> <s:property value="luser.email"></s:property></a>
             <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
           </ul>
         </div>
