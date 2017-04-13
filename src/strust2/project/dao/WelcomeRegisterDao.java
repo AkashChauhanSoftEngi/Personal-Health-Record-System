@@ -30,9 +30,10 @@ public class WelcomeRegisterDao {
 		} catch (HibernateException e) {
 			if (tx != null)
 				tx.rollback();
-			e.printStackTrace();
+				e.printStackTrace();
 		} finally {
 			session.close();
+			session = null;
 		}
 		return data;
 	}

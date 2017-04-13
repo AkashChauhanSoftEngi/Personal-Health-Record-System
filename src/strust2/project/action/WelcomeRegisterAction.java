@@ -1,9 +1,7 @@
 package strust2.project.action;
 
 import org.apache.log4j.Logger;
-
 import com.opensymphony.xwork2.ActionSupport;
-
 import strust2.project.dao.WelcomeRegisterDao;
 
 public class WelcomeRegisterAction extends ActionSupport {
@@ -22,12 +20,14 @@ public class WelcomeRegisterAction extends ActionSupport {
 		if(dao.addUser(f_name,l_name,email,pass,gender))
 		{
 			log.info("User Added!");
-			return MyAction.GOOD;
+			this.addActionMessage("Registration Completed!");
+			return SUCCESS;
 		}
 		else
 		{
-			return MyAction.BAD;
+			this.addActionError("User Already exists!");
 		}
+		return INPUT;
 	}
 
 	public String getEmail() {
